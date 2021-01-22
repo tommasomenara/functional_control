@@ -1,0 +1,66 @@
+rENT
+rPARH
+  rTP
+  rFP
+ rFUS
+  rTT
+rLOCC
+  rSP
+  rIT
+  rIP
+rSMAR
+rBSTS
+  rMT
+  rST
+rPSTC
+rPREC
+ rCMF
+rPOPE
+rPTRI
+ rRMF
+rPORB
+ rLOF
+ rCAC
+ rRAC
+  rSF
+ rMOF
+rLING
+rPCAL
+ rCUN
+rPARC
+rISTC
+rPCUN
+  rPC
+  lPC
+lPCUN
+lISTC
+lPARC
+ lCUN
+lPCAL
+lLING
+ lMOF
+  lSF
+ lRAC
+ lCAC
+ lLOF
+lPORB
+ lRMF
+lPTRI
+lPOPE
+ lCMF
+lPREC
+lPSTC
+  lST
+  lMT
+lBSTS
+lSMAR
+  lIP
+  lIT
+  lSP
+lLOCC
+  lTT
+ lFUS
+  lFP
+  lTP
+lPARH
+ lENT
