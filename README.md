@@ -10,6 +10,8 @@ Repository of the Matlab code used for the paper
 }
 ```
 
+https://zenodo.org/badge/latestdoi/332052527
+
 The code is divided into 5 folders. Each folder allows you to reproduce the results as shown in the paper. The same scripts can also be used to apply the optimization and control methods presented in the paper to arbitrary networks of Kuramoto oscillators.
 
 For any inquiries about the code, please contact Tommaso Menara at tomenara@engr.ucr.edu
