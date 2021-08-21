@@ -18,10 +18,9 @@ For any inquiries about the code, please contact Tommaso Menara at tomenara@engr
   
 ## Dependencies
 
-Recommended version:
 - Matlab 2020b
-  Bioinformatics Toolbox
-  Signal Processing Toolbox 
-  cvx package (http://cvxr.com)
-  matpower7.1 (https://matpower.org/download/)
+- Bioinformatics Toolbox
+- Signal Processing Toolbox
+- cvx package (http://cvxr.com)
+- matpower7.1 (https://matpower.org/download/)
   
