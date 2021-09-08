@@ -1,4 +1,5 @@
-% This is the main script for the example used in Figure 1
+% This is the main script for the example in the Supplementary Information
+% section "A Heuristic Method To Promote Stability of Functional Patterns in Positive Networks"
 
 % Please comment lines 40-43 and uncomment lines 51-132 and 165-250 to assign different equilibria
 
