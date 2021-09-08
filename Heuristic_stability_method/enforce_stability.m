@@ -1,7 +1,7 @@
 % This is the main script for the example in the Supplementary Information
 % section "A Heuristic Method To Promote Stability of Functional Patterns in Positive Networks"
 
-% Please comment lines 40-43 and uncomment lines 51-132 and 165-250 to assign different equilibria
+% Please comment lines 43-46 and uncomment lines 51-132 and 165-250 to assign different equilibria
 
 % NOTE: this code requires cvx (http://cvxr.com/cvx/) if you want to run
 % your own optimization
