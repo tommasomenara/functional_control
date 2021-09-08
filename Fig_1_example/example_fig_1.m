@@ -1,6 +1,6 @@
 % This is the main script for the example used in Figure 1
 
-% Please comment lines 40-43 and uncomment lines 51-109 and 140-197 to assign different equilibria
+% Please comment lines 43-46 and uncomment lines 51-109 and 140-197 to assign different equilibria
 
 % NOTE: this code requires cvx (http://cvxr.com/cvx/) if you want to run
 % your own optimization
