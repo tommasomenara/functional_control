@@ -205,7 +205,7 @@ warning off, Bspan = (adj2inc(Tree,0))'; warning on
 
 omega = B_SC*D*delta_SC;
 
-dt = .01; % time step
+dt = .05; % time step
 T = 40; % final time
 time = (0:dt:T)';
 
@@ -219,8 +219,6 @@ figure, plot(time, sin(Phases_evol)), title('Phases'), legend
 for t = 1:length(time)
     Phase_differences(t,:) = Bspan'*Phases_evol(t,:)';
 end
-
-figure, plot(time, Phase_differences), title('Phase differences')
 
 rho_matrix = zeros(N,N); % "correlation" matrix
 c=0;
@@ -244,3 +242,82 @@ subplot(1,3,1), imagesc(CORR_BOLD), colorbar, caxis([-1 1])
 title('Correlation BOLD signals')
 subplot(1,3,2), imagesc(rho_matrix), colorbar, title('Our synthetic FC'), caxis([-1 1])
 subplot(1,3,3), imagesc(CORR_BOLD-rho_matrix), colorbar, title('Difference')
+
+%% assess basin of attraction manually
+
+pert = .75*pi;
+X0 = theta-(2*pert)*rand(N,1)+pert;
+
+T = 5000; % final time
+time = (0:dt:T)';
+
+Phases_evol2 = Kuramoto_fun(SC, 1, N, time, omega+.29+100, X0);
+for t = 1:length(time)
+    Phase_differences2(t,:) = Bspan'*(Phases_evol2(t,:))';
+end
+for t = 1:length(Phase_differences2(:,1)) % modulus 2*pi
+    for j = 1:11
+        if Phase_differences2(t,j)>2*pi
+            Phase_differences2(t:end,j) = Phase_differences2(t:end,j)-2*pi;
+        elseif Phase_differences2(t,j)<-2*pi
+            Phase_differences2(t:end,j) = Phase_differences2(t:end,j)+2*pi;
+        end
+    end
+end
+
+goal = Bspan'*theta;
+figure, plot(time(1500/dt:end), Phase_differences2(1500/dt:end,:)), title('Phase differences')
+hold on
+for i = 1:11
+    plot(time(end),goal(i),'rx','Linewidth', 1.25)
+end
+
+%% Compute distance from manifold
+
+pert = .5*pi;
+reduced_time = 1:500:length(time);
+
+for loop = 1:100
+    loop
+    X0 = theta-(2*pert)*rand(N,1)+pert;
+    
+    Phases_evol2 = Kuramoto_fun(SC, 1, N, time, omega+.29+100, X0);
+%     for i = 1:12
+%         Phases_evol2(:,i) = mod(Phases_evol2(:,i),2*pi);
+%     end
+    Phases_evol_reduced = Phases_evol2(reduced_time,:); % reduce sampling time
+    for t = 1:length(reduced_time)
+        Phase_differences_reduced(t,:) = Bspan'*(Phases_evol_reduced(t,:))';
+    end
+    for t = 1:length(reduced_time)
+        for j = 1:11
+            phase_diff = Phase_differences_reduced(t,j);
+            if phase_diff>=2*pi
+                Phase_differences_reduced(t:end,j) = Phase_differences_reduced(t:end,j)-floor(phase_diff/(2*pi))*2*pi;
+            elseif phase_diff<=-2*pi
+                Phase_differences_reduced(t:end,j) = Phase_differences_reduced(t:end,j)+floor(abs(phase_diff)/(2*pi))*2*pi;
+            end
+        end
+    end
+    
+    for tt = 1:length(reduced_time)
+        Norm(loop,tt) = norm(Phase_differences_reduced(tt,:)-goal');
+    end
+    
+end
+
+M = mean(Norm);
+M_min = min(Norm);
+M_max = max(Norm);
+
+figure
+plot(reduced_time, Norm)
+hold on
+plot(reduced_time, M, 'k','Linewidth', 2)
+plot(reduced_time, M_min, 'r','Linewidth', 2)
+plot(reduced_time, M_max, 'b','Linewidth', 2)
+
+lower_bound = M-M_min;
+upper_bound = M_max-M;
+
+dlmwrite('average_and_bounds.txt',[reduced_time', M', lower_bound', upper_bound'],'delimiter', ',', 'precision', 5);

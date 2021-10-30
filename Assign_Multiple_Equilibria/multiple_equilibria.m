@@ -1,6 +1,6 @@
 % This is the main script for the example on multiple equilibria
 
-% Please comment lines 32-35 and uncomment lines 39-117 to assign different equilibria
+% Please comment lines 35-38 and uncomment lines 42-120 to assign different equilibria
 
 % if you use this code, please cite the paper: 
 % "T. Menara et al. (2021), Functional Control of Oscillator Networks"
