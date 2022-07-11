@@ -2,7 +2,7 @@
 Repository of the Matlab code used for the paper
 
 ```bibtex
-@article{menara2021functional,
+@article{menara2022functional,
   title={Functional Control of Oscillator Networks},
   author={Menara, T. and Baggio, G. and Bassett, D. S. and Pasqualetti, F.},
   journal={Nature Communications},
