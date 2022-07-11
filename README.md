@@ -5,8 +5,8 @@ Repository of the Matlab code used for the paper
 @article{menara2021functional,
   title={Functional Control of Oscillator Networks},
   author={Menara, T. and Baggio, G. and Bassett, D. S. and Pasqualetti, F.},
-  journal={arXiv preprint arXiv:2102.08566},
-  year={2021}
+  journal={Nature Communications},
+  year={2022}
 }
 ```
 
