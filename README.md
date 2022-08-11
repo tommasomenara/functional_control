@@ -7,6 +7,8 @@ Repository of the Matlab code used for the paper
   author={Menara, T. and Baggio, G. and Bassett, D. S. and Pasqualetti, F.},
   journal={Nature Communications},
   doi={https://doi.org/10.1038/s41467-022-31733-2},
+  volume = {13},
+  pages = {4721},
   year={2022}
 }
 ```
